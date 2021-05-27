@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-devtools-issue';
+
+  public hasViewContainerRef = false;
+
+  /**
+   * @TODO remove construct to make DevTools work again!
+   */
+  constructor(public viewContainerRef: ViewContainerRef) {
+    this.hasViewContainerRef = !!viewContainerRef;
+  }
 }
